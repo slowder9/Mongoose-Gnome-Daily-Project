@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Gnome Collection</title>
+  </head>
+
+  <body>
+    <h1>Gnomes</h1>
+
+    <ul>
+      {{ #collection }}
+      <li>
+          <span>{{ name }}</span>
+            
+            {{ #facts }}
+              <span>{{ amount }}</span>
+              
+              <span>{{ hatColor }}</span>
+            {{ /facts }}
+              
+          <span>{{ steps }}</span>
+
+          <form method="post" action="/delete/{{ _id }}">
+            <input type="submit" name="delete" value="Delete">
+          </form>
+
+      </li>
+      {{ /collection }}
+    </ul>
+
+    <h2>Add a gnome: </h2>
+    <form method="post" action="/add">
+      Name : <input type="text" name="name">
+      
+      Amount : <input type="text" name="amount">
+      
+      Hat Color : <input type="text" name="hatColor">
+
+      Steps: <input type="text" name="steps">
+      
+      <input type="submit" name="add" value="Add Gnome">
+    </form>
+
+</body>
+</html>
